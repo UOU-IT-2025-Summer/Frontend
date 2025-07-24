@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
 import 'register.dart';
+import 'sidebar.dart';
+import 'sidebar_layout.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,31 +36,31 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      //   title: Text(widget.title),
-      // ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ElevatedButton(
+    return SidebarLayout(
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => registerPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SidebarLayout(child: registerPage())));
               },
-              child: Text(
-                  '회원가입'
-              )
-          ),
-          ElevatedButton(
+              child: const Text('회원가입'),
+            ),
+            ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => loginPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => SidebarLayout(child: loginPage())));
               },
-              child: Text(
-                  '로그인'
-              )
-          ),
-        ],
+              child: const Text('로그인'),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -66,7 +66,7 @@ class loginPage extends StatelessWidget {
                             margin: const EdgeInsets.only(top: 10),
                             child: TextButton(
                               onPressed: () {},
-                              child: Text('아이디/비밀번호 찾기', style: TextStyle(color: Colors.black)),
+                              child: Text('비밀번호 찾기', style: TextStyle(color: Colors.black)),
                             ),
                           ),
                         ],

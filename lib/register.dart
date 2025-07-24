@@ -1,69 +1,104 @@
 import 'package:flutter/material.dart';
 
-class registerPage extends StatelessWidget {
+class registerPage extends StatefulWidget {
   const registerPage({super.key});
+
+  @override
+  State<registerPage> createState() => _registerPageState();
+}
+
+class _registerPageState extends State<registerPage> {
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmController = TextEditingController();
+
+  String? _errorMessage;
+
+  void _checkPasswordMatch() {
+    final password = _passwordController.text;
+    final confirm = _confirmController.text;
+
+    setState(() {
+      if (confirm.isEmpty) {
+        _errorMessage = null;
+      } else if (confirm != password) {
+        _errorMessage = '비밀번호가 일치하지 않습니다.';
+      } else {
+        _errorMessage = null;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        // appBar: AppBar(
-        //   Text('회원가입',
-        //     style: TextStyle(
-        //       fontSize: 20,
-        //     ),
-        //   ),
-        // ),
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
+        body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                child: Text(
-                  '회원가입',
+              const Text(
+                '회원가입',
+                style: TextStyle(fontSize: 24),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: 300,
+                child: TextField(
+                  decoration: const InputDecoration(labelText: '이름'),
                 ),
               ),
               SizedBox(
-                height: 20,
-              ),
-              Container(
                 width: 300,
                 child: TextField(
-                  decoration: InputDecoration(labelText: '이름'),
+                  decoration: const InputDecoration(labelText: '이메일(울산대 계정)'),
                 ),
               ),
-              Container(
+              SizedBox(
                 width: 300,
                 child: TextField(
-                  decoration: InputDecoration(labelText: '이메일(울산대 계정)'),
-                ),
-              ),
-              Container(
-                width: 300,
-                child: TextField(
+                  controller: _passwordController,
                   obscureText: true,
-                  decoration: InputDecoration(labelText: '비밀번호'),
+                  decoration: const InputDecoration(labelText: '비밀번호'),
                 ),
               ),
-              Container(
+              SizedBox(
                 width: 300,
                 child: TextField(
+                  controller: _confirmController,
                   obscureText: true,
-                  decoration: InputDecoration(labelText: '비밀번호 확인'),
+                  decoration: const InputDecoration(labelText: '비밀번호 확인'),
+                  onChanged: (_) => _checkPasswordMatch(),
                 ),
               ),
+              if (_errorMessage != null)
+                Container(
+                  width: 300,
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Text(
+                    _errorMessage!,
+                    style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
               Container(
                 width: 300,
                 margin: const EdgeInsets.only(top: 30),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_errorMessage == null) {
+                      print("회원가입 성공");
+                    } else {
+                      print("비밀번호가 일치하지 않음");
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                   ),
-                  child: Text('회원가입', style: TextStyle(color: Colors.white)),
+                  child: const Text('회원가입', style: TextStyle(color: Colors.white)),
                 ),
               ),
             ],
