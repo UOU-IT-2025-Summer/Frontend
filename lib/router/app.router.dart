@@ -16,15 +16,27 @@ final GoRouter appRouter = GoRouter( //appRouter 이라는 이름으로 GoRouter
     ),
     GoRoute(
       path: '/login', //사용자가 이동할 주소
-      builder: (context, state) => SidebarLayout(child: loginPage()), //그래서 로그인 주소로 가면 왼쪽에 사이드 바 오른쪽에 로그인 페이지
+      pageBuilder: (context, state) => const NoTransitionPage(
+          child: SidebarLayout(
+            child: loginPage(),
+          ),
+      ),
     ),
     GoRoute(
       path: '/register',
-      builder: (context, state) => SidebarLayout(child: registerPage()),
+      pageBuilder: (context, state) => const NoTransitionPage(
+        child: SidebarLayout(
+          child: registerPage(),
+        ),
+      ),
     ),
     GoRoute(
       path: '/findPassword',
-      builder: (context, state) => SidebarLayout(child: findPassword()),
+      pageBuilder: (context, state) => const NoTransitionPage(
+        child: SidebarLayout(
+          child: findPassword(),
+        ),
+      ),
     ),
   ],
 );
