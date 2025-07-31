@@ -63,7 +63,7 @@ class loginPage extends StatelessWidget {
                           Container(
                             margin: const EdgeInsets.only(top: 10),
                             child: TextButton(
-                              onPressed: () {},//=> context.go(),
+                              onPressed: () => context.go('/findPassword'),
                               child: Text('비밀번호 찾기', style: TextStyle(color: Colors.black)),
                             ),
                           ),

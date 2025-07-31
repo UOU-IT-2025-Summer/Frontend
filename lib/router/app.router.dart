@@ -4,6 +4,7 @@ import '../page/login.dart';
 import '../page/register.dart';
 import '../page/sidebar_layout.dart';
 import '../page/homePage.dart';
+import '../page/findPassword.dart';
 
 final GoRouter appRouter = GoRouter( //appRouter 이라는 이름으로 GoRouter 객체 생성(라우팅 규칙 생성)
   routes: [ //여기에 여러 개의 경로 등록
@@ -20,6 +21,10 @@ final GoRouter appRouter = GoRouter( //appRouter 이라는 이름으로 GoRouter
     GoRoute(
       path: '/register',
       builder: (context, state) => SidebarLayout(child: registerPage()),
+    ),
+    GoRoute(
+      path: '/findPassword',
+      builder: (context, state) => SidebarLayout(child: findPassword()),
     ),
   ],
 );
