@@ -1,16 +1,32 @@
-# login
+# 📚 강의노트 공유 및 평가 웹 서비스
 
-A new Flutter project.
+사용자들이 직접 **강의 내용을 정리**하고, **노트 공유** 및 **강의 평가**를 할 수 있는  
+웹/모바일 기반 서비스입니다.  
+**노션 스타일 에디터**를 기반으로 자유로운 문서 편집이 가능하며,  
+다른 사용자들과의 **강의 노트 공유** 및 **강의 검색·평가** 기능도 제공합니다.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 주요 기능
 
-A few resources to get you started if this is your first Flutter project:
+- 📄 **노션 스타일 에디터**로 강의 노트 작성
+- 🔍 강의 검색 및 필터링 기능
+- ✏️ 강의 평가 등록 (별점 + 코멘트)
+- 📤 사용자 간 노트 공유 및 열람
+- 🧾 개인 노트 저장 및 수정
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ 기술 스택
+
+### 📱 Frontend
+- **Flutter** (웹앱 지원)
+
+### 🌐 Backend
+- **FastAPI**  
+- RESTful API 설계
+
+### 🗄️ Database
+- **PostgreSQL**
+
+---
