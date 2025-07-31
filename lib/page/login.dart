@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'register.dart';
 
 class loginPage extends StatelessWidget {
@@ -55,17 +56,14 @@ class loginPage extends StatelessWidget {
                           Container(
                             margin: const EdgeInsets.only(top: 10),
                             child: TextButton(
-                              onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => registerPage())
-                                );
-                                },
+                              onPressed: () => context.go('/register'),
                               child: Text('회원가입', style: TextStyle(color: Colors.black)),
                             ),
                           ),
                           Container(
                             margin: const EdgeInsets.only(top: 10),
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {},//=> context.go(),
                               child: Text('비밀번호 찾기', style: TextStyle(color: Colors.black)),
                             ),
                           ),
