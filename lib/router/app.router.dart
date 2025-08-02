@@ -6,37 +6,37 @@ import '../page/sidebar_layout.dart';
 import '../page/homePage.dart';
 import '../page/findPassword.dart';
 
-final GoRouter appRouter = GoRouter( //appRouter 이라는 이름으로 GoRouter 객체 생성(라우팅 규칙 생성)
-  routes: [ //여기에 여러 개의 경로 등록
-    GoRoute(
-      path: '/',
-      builder: (context, state) => SidebarLayout( //builder은 그 주소 값으로 갔을 때 어떤 페이지를 보여줄 지 결정
-        child: const MyHomePage(title: 'Flutter Demo Home Page'), //사이드 바 오른 쪽에 어떤 내용을 보여줄 지 결정
-      ),
-    ),
-    GoRoute(
-      path: '/login', //사용자가 이동할 주소
-      pageBuilder: (context, state) => NoTransitionPage(
-          child: SidebarLayout(
-            child: loginPage(),
-          ),
-      ),
-    ),
-    GoRoute(
-      path: '/register',
-      pageBuilder: (context, state) => NoTransitionPage(
-        child: SidebarLayout(
-          child: registerPage(),
+final GoRouter appRouter = GoRouter(
+  initialLocation: '/', // 선택 사항
+  routes: [
+    // 공통 레이아웃 ShellRoute
+    ShellRoute(
+      builder: (context, state, child) {
+        return SidebarLayout(child: child); // 공통 레이아웃 정의
+      },
+      routes: [
+        GoRoute(
+          path: '/',
+          pageBuilder: (context, state) => NoTransitionPage(child: MyHomePage(title: 'Flutter Demo Home Page'))
+          // builder: (context, state) =>
+          // const MyHomePage(title: 'Flutter Demo Home Page'),
         ),
-      ),
-    ),
-    GoRoute(
-      path: '/findPassword',
-      pageBuilder: (context, state) => NoTransitionPage(
-        child: SidebarLayout(
-          child: findPassword(),
+        GoRoute(
+          path: '/login',
+          pageBuilder: (context, state) => NoTransitionPage(child: loginPage()),
+          // builder: (context, state) => loginPage(),
         ),
-      ),
+        GoRoute(
+          path: '/register',
+          pageBuilder: (context, state) => NoTransitionPage(child: registerPage()),
+          // builder: (context, state) => registerPage(),
+        ),
+        GoRoute(
+          path: '/findPassword',
+          pageBuilder: (context, state) => NoTransitionPage(child: findPassword()),
+          // builder: (context, state) => findPassword(),
+        ),
+      ],
     ),
   ],
 );
