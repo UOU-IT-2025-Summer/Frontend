@@ -30,9 +30,7 @@ class _registerPageState extends State<registerPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -104,7 +102,6 @@ class _registerPageState extends State<registerPage> {
             ],
           ),
         ),
-      ),
     );
   }
 }

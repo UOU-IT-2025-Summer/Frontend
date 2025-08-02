@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'register.dart';
+import 'findPassword.dart';
 
 class loginPage extends StatelessWidget {
   const loginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -70,14 +69,12 @@ class loginPage extends StatelessWidget {
                         ],
                       ),
                     )
-
                   ],
                 ),
               )
             ],
           ),
         ),
-      ),
     );
   }
 }
