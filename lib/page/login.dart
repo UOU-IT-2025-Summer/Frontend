@@ -41,7 +41,7 @@ class loginPage extends StatelessWidget {
                       width: 300,
                       margin: const EdgeInsets.only(top: 30),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => context.go('/loginSuccess'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
                         ),

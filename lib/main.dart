@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'router/app.router.dart';
-import 'page/sidebar_layout.dart';
+import 'page/dashboardLayout.dart';
 import 'page/homePage.dart';
 
 
@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router( //go_router 패키지 사용할 때 MaterialApp 다음에 .router 해줘야 됨.
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:login/page/loginSuccess.dart';
 import '../page/login.dart';
 import '../page/register.dart';
-import '../page/sidebar_layout.dart';
+import '../page/dashboardLayout.dart';
 import '../page/homePage.dart';
 import '../page/findPassword.dart';
 
@@ -34,6 +35,11 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: '/findPassword',
           pageBuilder: (context, state) => NoTransitionPage(child: findPassword()),
+          // builder: (context, state) => findPassword(),
+        ),
+        GoRoute(
+          path: '/loginSuccess',
+          pageBuilder: (context, state) => NoTransitionPage(child: loginSuccess()),
           // builder: (context, state) => findPassword(),
         ),
       ],
